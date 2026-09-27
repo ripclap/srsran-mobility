@@ -1,0 +1,24 @@
+{
+  "upstream_srsran_revision": "bef8680d5f9714f3e040e6f9cbc88d7888439b6d",
+  "patch_sha256": "6b890440115d92e18c565cc0deee88ed49b4bd49ec38d7502b73179c8483665a",
+  "native_changed_files": [
+    "CMakeLists.txt",
+    "lib/include/srsran/interfaces/enb_rrc_interface_s1ap.h",
+    "lib/include/srsran/interfaces/enb_s1ap_interfaces.h",
+    "lib/src/phy/ch_estimation/cedron_freq_estimator.c",
+    "lib/src/phy/dft/dft_fftw.c",
+    "srsenb/hdr/stack/rrc/rrc.h",
+    "srsenb/hdr/stack/rrc/rrc_bearer_cfg.h",
+    "srsenb/hdr/stack/rrc/rrc_ue.h",
+    "srsenb/hdr/stack/s1ap/s1ap.h",
+    "srsenb/src/stack/enb_stack_lte.cc",
+    "srsenb/src/stack/rrc/rrc.cc",
+    "srsenb/src/stack/rrc/rrc_bearer_cfg.cc",
+    "srsenb/src/stack/rrc/rrc_mobility.cc",
+    "srsenb/src/stack/rrc/rrc_ue.cc",
+    "srsenb/src/stack/s1ap/CMakeLists.txt",
+    "srsenb/src/stack/s1ap/s1ap.cc",
+    "srsenb/src/stack/s1ap/s1ap_x2.cc"
+  ],
+  "changed_preexisting_native_tests": []
+}

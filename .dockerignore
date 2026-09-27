@@ -1,0 +1,7 @@
+**
+!Dockerfile.ran
+!Dockerfile.core
+!patches/
+!patches/srsran-x2.patch
+!scripts/
+!scripts/build-x2-codec.sh

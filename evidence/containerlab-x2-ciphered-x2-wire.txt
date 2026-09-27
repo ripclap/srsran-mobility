@@ -1,0 +1,18 @@
+1790475898.331336000	X2SetupRequest
+1790475900.681612000	X2SetupRequest
+1790475900.681848000	X2SetupResponse
+1790475924.832160000	HandoverRequest, MasterInformationBlock (SFN=0), SystemInformationBlockType1 SIB2
+1790475924.833963000	HandoverRequestAcknowledge, RRCConnectionReconfiguration
+1790475924.834205000	SNStatusTransfer
+1790475924.912718000	UEContextRelease
+1790475934.562778000	HandoverRequest, MasterInformationBlock (SFN=0), SystemInformationBlockType1 SIB2
+1790475934.564202000	HandoverRequestAcknowledge, RRCConnectionReconfiguration
+1790475934.564539000	SNStatusTransfer
+1790475934.641285000	UEContextRelease
+1790475947.249129000	HandoverRequest, MasterInformationBlock (SFN=0), SystemInformationBlockType1 SIB2
+1790475962.471060000	HandoverCancel
+1790475970.662071000	HandoverRequestAcknowledge, RRCConnectionReconfiguration
+1790475972.525740000	HandoverRequest, MasterInformationBlock (SFN=0), SystemInformationBlockType1 SIB2
+1790475972.526760000	HandoverRequestAcknowledge, RRCConnectionReconfiguration
+1790475972.527112000	SNStatusTransfer
+1790475972.601708000	UEContextRelease

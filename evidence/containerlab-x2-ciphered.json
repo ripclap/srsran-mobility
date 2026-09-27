@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "failure": null,
+  "runtime": "containerlab",
+  "mode": "x2",
+  "fault_test": true,
+  "x2_standard_contract_counts": {
+    "X2SetupRequest": 2,
+    "X2SetupResponse": 1,
+    "HandoverRequest": 4,
+    "HandoverRequestAcknowledge": 4,
+    "SNStatusTransfer": 3,
+    "UEContextRelease": 3,
+    "HandoverCancel": 1
+  },
+  "successful_handovers": 3,
+  "ue_ip_before": "10.45.0.2",
+  "ue_ip_after": "10.45.0.2",
+  "additional_attaches": 0,
+  "max_reply_gap_seconds": 0.21035003662109375,
+  "max_rtt_ms": 107.0,
+  "captures": {
+    "ue-network.pcap": "e3f42e2687636327d7f18c9635173252505b4a838fa6829a755bab06c9c69749",
+    "enb2-network.pcap": "4b590fdf9e35e31a65b83658be027c087612b86c3f231d16addc6ebbbb6a3532",
+    "enb1-network.pcap": "1e50db6faee6f5f8653f4010dceefdf867b19a9aac86d3f57fa62f422c81b4c7"
+  },
+  "core_pcap_sha256": "99ad60c6c6b0640c196d0afb373ad15f2b9ff726e1282f3aec9c086890c384f8",
+  "packets_transmitted": 608,
+  "packets_received": 607,
+  "packet_loss_percent": 0.164474,
+  "as_security": {
+    "ciphering": [
+      "eea2"
+    ],
+    "integrity": [
+      "eia2"
+    ]
+  },
+  "security_gate": "Post-run inspection of the UE-decoded SecurityModeCommand; same check now embedded in verify.py",
+  "scenario_sha256": "e889a9e900bbdbf0f9b2c37c8f796f07d1c3b2e7b6ce47e0331bbf147b49d170"
+}

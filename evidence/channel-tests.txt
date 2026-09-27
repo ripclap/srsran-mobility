@@ -1,0 +1,18 @@
+test_antenna_direction (test_channel.ChannelTests) ... ok
+test_bad_delay_rejected (test_channel.ChannelTests) ... ok
+test_delay_crosses_frame_boundary (test_channel.ChannelTests) ... ok
+test_doppler_phase_continuity (test_channel.ChannelTests) ... ok
+test_invalid_control_rejected (test_channel.ChannelTests) ... ok
+test_pathloss_and_overlap (test_channel.ChannelTests) ... ok
+test_seeded_fading (test_channel.ChannelTests) ... ok
+test_two_cells_interfere_in_samples (test_channel.ChannelTests) ... ok
+test_ambiguous_cells (test_scenario.ScenarioTests) ... ok
+test_bad_impairments (test_scenario.ScenarioTests) ... ok
+test_bad_physical_settings (test_scenario.ScenarioTests) ... ok
+test_default_profile (test_scenario.ScenarioTests) ... ok
+test_does_not_accept_misleading_radio_clock (test_scenario.ScenarioTests) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.007s
+
+OK

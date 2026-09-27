@@ -1,0 +1,14 @@
+{
+  "source_schema_sha256": "cee7f66e1e002a4dfb41db6d01fa7a7b4a74663644ec8ffaeaa4ef7d6f30dbdf",
+  "source": "3GPP TS 36.423 R14.6.0 protocol IE definitions",
+  "messages": {
+    "0:0": {"name":"HandoverRequest", "mandatory":[10,5,11,23,14,15], "criticality":{"10":0,"5":1,"11":0,"23":0,"14":0,"15":1,"4":1}},
+    "1:0": {"name":"HandoverRequestAcknowledge", "mandatory":[10,9,1,12], "criticality":{"10":1,"9":1,"1":1,"12":1,"0":1}},
+    "2:0": {"name":"HandoverPreparationFailure", "mandatory":[10,5], "criticality":{"10":1,"5":1}},
+    "0:1": {"name":"HandoverCancel", "mandatory":[10,5], "criticality":{"10":0,"9":1,"5":1}},
+    "0:4": {"name":"SNStatusTransfer", "mandatory":[10,9,18], "criticality":{"10":0,"9":0,"18":1,"19":1}},
+    "0:5": {"name":"UEContextRelease", "mandatory":[10,9], "criticality":{"10":0,"9":0}},
+    "0:6": {"name":"X2SetupRequest", "mandatory":[21,20], "criticality":{"21":0,"20":0,"24":0}},
+    "1:6": {"name":"X2SetupResponse", "mandatory":[21,20], "criticality":{"21":0,"20":0,"24":0}}
+  }
+}

@@ -1,0 +1,10 @@
+FROM ubuntu:22.04@sha256:b8b6ee6aa931ecd9d0d952abc34dc0e5f7c6a30c6bb71b079fe399fde0329c02
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates git build-essential python3-pip python3-setuptools python3-wheel ninja-build flex bison cmake libsctp-dev libc-ares-dev libgnutls28-dev libgcrypt-dev libssl-dev libmongoc-dev libbson-dev libyaml-dev libnghttp2-dev libmicrohttpd-dev libcurl4-gnutls-dev libtins-dev libtalloc-dev libidn11-dev python3-yaml python3-pymongo iproute2 iputils-ping iptables tcpdump tshark && rm -rf /var/lib/apt/lists/*
+RUN python3 -m pip install --no-cache-dir meson==1.7.2
+ARG OPEN5GS_REF=f2808a2fe0accd438008ff0564fe9ff4bba3d6ae
+RUN git clone https://github.com/open5gs/open5gs.git /src/open5gs && git -C /src/open5gs checkout ${OPEN5GS_REF} && meson setup /src/open5gs/build /src/open5gs --prefix=/open5gs/install --buildtype=release && ninja -C /src/open5gs/build -j2 && ninja -C /src/open5gs/build install
+LABEL org.opencontainers.image.source="https://github.com/open5gs/open5gs" org.opencontainers.image.revision="157f611a530e292e40ec50f9d23f0ef5d4fcd6a6"
+WORKDIR /lab
+ENTRYPOINT []
+CMD ["/open5gs/install/bin/open5gs-mmed", "-v"]

@@ -1,0 +1,35 @@
+1790476040.394229000	S1SetupRequest
+1790476040.394975000	S1SetupRequest
+1790476040.406106000	S1SetupResponse
+1790476040.410322000	S1SetupResponse
+1790476058.534226000	InitialUEMessage, Attach request, PDN connectivity request
+1790476058.544982000	SACK (Ack=1, Arwnd=106496) , DownlinkNASTransport, Identity request
+1790476058.568529000	SACK (Ack=1, Arwnd=106496) , UplinkNASTransport, Identity response
+1790476058.606713000	SACK (Ack=2, Arwnd=106496) , DownlinkNASTransport, Authentication request
+1790476058.637598000	SACK (Ack=2, Arwnd=106496) , UplinkNASTransport, Authentication response
+1790476058.643934000	SACK (Ack=3, Arwnd=106496) , DownlinkNASTransport, Security mode command
+1790476058.684815000	SACK (Ack=3, Arwnd=106496) , UplinkNASTransport, Security mode complete
+1790476058.745728000	SACK (Ack=4, Arwnd=106496) , DownlinkNASTransport, ESM information request
+1790476058.777186000	SACK (Ack=4, Arwnd=106496) , UplinkNASTransport, ESM information response
+1790476058.809529000	SACK (Ack=5, Arwnd=106496) , InitialContextSetupRequest, Attach accept, Activate default EPS bearer context request
+1790476058.871273000	SACK (Ack=5, Arwnd=106496) , UECapabilityInfoIndication, UECapabilityInformation
+1790476059.078088000	InitialContextSetupResponse, UplinkNASTransport, Attach complete, Activate default EPS bearer context accept
+1790476059.092457000	SACK (Ack=8, Arwnd=106496) , DownlinkNASTransport, EMM information
+1790476066.825076000	HandoverRequired [RadioNetwork-cause=handover-desirable-for-radio-reason]
+1790476066.829523000	HandoverRequest [RadioNetwork-cause=handover-desirable-for-radio-reason]
+1790476066.831391000	SACK (Ack=1, Arwnd=106496) , HandoverRequestAcknowledge
+1790476066.844560000	SACK (Ack=9, Arwnd=106496) , HandoverCommand, RRCConnectionReconfiguration
+1790476066.844924000	SACK (Ack=7, Arwnd=106496) , ENBStatusTransfer
+1790476066.848434000	SACK (Ack=1, Arwnd=106496) , MMEStatusTransfer
+1790476066.902217000	SACK (Ack=2, Arwnd=106496) , HandoverNotify
+1790476067.207538000	UEContextReleaseCommand [RadioNetwork-cause=successful-handover]
+1790476067.207811000	SACK (Ack=8, Arwnd=106496) , UEContextReleaseComplete
+1790476076.489893000	HandoverRequired [RadioNetwork-cause=handover-desirable-for-radio-reason]
+1790476076.494287000	HandoverRequest [RadioNetwork-cause=handover-desirable-for-radio-reason]
+1790476076.495702000	SACK (Ack=9, Arwnd=106496) , HandoverRequestAcknowledge
+1790476076.507627000	SACK (Ack=3, Arwnd=106496) , HandoverCommand, RRCConnectionReconfiguration
+1790476076.508039000	SACK (Ack=3, Arwnd=106496) , ENBStatusTransfer
+1790476076.510489000	SACK (Ack=12, Arwnd=106496) , MMEStatusTransfer
+1790476076.567458000	SACK (Ack=10, Arwnd=106496) , HandoverNotify
+1790476076.873678000	UEContextReleaseCommand [RadioNetwork-cause=successful-handover]
+1790476076.873936000	SACK (Ack=4, Arwnd=106496) , UEContextReleaseComplete

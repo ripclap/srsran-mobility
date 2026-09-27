@@ -1,0 +1,23 @@
+1790475898.318527000	S1SetupRequest
+1790475898.318694000	S1SetupRequest
+1790475898.330145000	S1SetupResponse
+1790475898.334763000	S1SetupResponse
+1790475916.478132000	InitialUEMessage, Attach request, PDN connectivity request
+1790475916.488225000	SACK (Ack=1, Arwnd=106496) , DownlinkNASTransport, Identity request
+1790475916.512864000	SACK (Ack=1, Arwnd=106496) , UplinkNASTransport, Identity response
+1790475916.551171000	SACK (Ack=2, Arwnd=106496) , DownlinkNASTransport, Authentication request
+1790475916.582057000	SACK (Ack=2, Arwnd=106496) , UplinkNASTransport, Authentication response
+1790475916.587598000	SACK (Ack=3, Arwnd=106496) , DownlinkNASTransport, Security mode command
+1790475916.630304000	SACK (Ack=3, Arwnd=106496) , UplinkNASTransport, Security mode complete
+1790475916.695256000	SACK (Ack=4, Arwnd=106496) , DownlinkNASTransport, ESM information request
+1790475916.725797000	SACK (Ack=4, Arwnd=106496) , UplinkNASTransport, ESM information response
+1790475916.756535000	SACK (Ack=5, Arwnd=106496) , InitialContextSetupRequest, Attach accept, Activate default EPS bearer context request
+1790475916.818531000	SACK (Ack=5, Arwnd=106496) , UECapabilityInfoIndication, UECapabilityInformation
+1790475917.022122000	InitialContextSetupResponse, UplinkNASTransport, Attach complete, Activate default EPS bearer context accept
+1790475917.037767000	SACK (Ack=8, Arwnd=106496) , DownlinkNASTransport, EMM information
+1790475924.897165000	PathSwitchRequest
+1790475924.912473000	SACK (Ack=1, Arwnd=106496) , PathSwitchRequestAcknowledge
+1790475934.626370000	PathSwitchRequest
+1790475934.641024000	SACK (Ack=9, Arwnd=106496) , PathSwitchRequestAcknowledge
+1790475972.590062000	PathSwitchRequest
+1790475972.601430000	SACK (Ack=2, Arwnd=106496) , PathSwitchRequestAcknowledge

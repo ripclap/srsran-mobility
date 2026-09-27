@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "failure": null,
+  "runtime": "containerlab",
+  "mode": "s1",
+  "as_security": {
+    "ciphering": [
+      "eea2"
+    ],
+    "integrity": [
+      "eia2"
+    ]
+  },
+  "fault_test": false,
+  "x2_standard_contract_counts": {},
+  "successful_handovers": 2,
+  "ue_ip_before": "10.45.0.2",
+  "ue_ip_after": "10.45.0.2",
+  "additional_attaches": 0,
+  "max_reply_gap_seconds": 0.11974811553955078,
+  "max_rtt_ms": 51.6,
+  "captures": {
+    "ue-network.pcap": "e3f42e2687636327d7f18c9635173252505b4a838fa6829a755bab06c9c69749",
+    "enb2-network.pcap": "5e7d8adac76fa1889d05c95ba2bb963f3057d7c9b499f4d3e48079e41b9f28b5",
+    "enb1-network.pcap": "96d6f7eb9cb7801637edaa3c06b8f452d3d7aafbdc1e5d4a7e7d064bbf2af1ca"
+  },
+  "core_pcap_sha256": "94dd82772f8589b2727d3b60388ecd188d13f39755fc42ff464e957d929cd073",
+  "packets_transmitted": 230,
+  "packets_received": 229,
+  "packet_loss_percent": 0.434783
+}

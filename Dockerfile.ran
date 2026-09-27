@@ -1,0 +1,20 @@
+FROM ubuntu:22.04@sha256:b8b6ee6aa931ecd9d0d952abc34dc0e5f7c6a30c6bb71b079fe399fde0329c02 AS build
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates git build-essential cmake pkg-config autoconf automake libtool bison flex python3 libfftw3-dev libmbedtls-dev libboost-program-options-dev libconfig++-dev libsctp-dev libzmq3-dev && rm -rf /var/lib/apt/lists/*
+WORKDIR /src
+ARG SRSRAN_REF=bef8680d5f9714f3e040e6f9cbc88d7888439b6d
+RUN git clone https://github.com/srsran/srsRAN_4G.git vendor/srsRAN_4G && git -C vendor/srsRAN_4G checkout ${SRSRAN_REF}
+COPY patches/srsran-x2.patch /src/patches/srsran-x2.patch
+RUN git -C vendor/srsRAN_4G apply /src/patches/srsran-x2.patch
+COPY scripts/build-x2-codec.sh /src/scripts/build-x2-codec.sh
+RUN bash scripts/build-x2-codec.sh > /src/codec-generation.log 2>&1
+RUN cmake -S vendor/srsRAN_4G -B build/ran -DCMAKE_BUILD_TYPE=Release -DX2AP_CODEC_DIR=/src/build/x2ap-pinned -DENABLE_WERROR=OFF -DENABLE_UHD=OFF -DENABLE_BLADERF=OFF -DENABLE_SOAPYSDR=OFF -DENABLE_GUI=OFF -DENABLE_AVX=OFF -DENABLE_AVX2=OFF -DENABLE_AVX512=OFF -DENABLE_SSE=OFF -DENABLE_ALL_TEST=OFF -DENABLE_SRSEPC=OFF -DENABLE_SRSUE=ON -DENABLE_SRSENB=ON -DENABLE_ZEROMQ=ON && cmake --build build/ran -j2 --target srsenb srsue && cmake --install build/ran
+FROM ubuntu:22.04@sha256:b8b6ee6aa931ecd9d0d952abc34dc0e5f7c6a30c6bb71b079fe399fde0329c02
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y --no-install-recommends python3 python3-numpy python3-zmq python3-yaml tcpdump iproute2 iputils-ping libfftw3-single3 libmbedtls14 libmbedcrypto7 libmbedx509-1 libboost-program-options1.74.0 libconfig++9v5 libsctp1 libzmq5 && rm -rf /var/lib/apt/lists/*
+COPY --from=build /usr/local/ /usr/local/
+RUN ldconfig
+LABEL org.opencontainers.image.source="https://github.com/srsran/srsRAN_4G" org.opencontainers.image.revision="bef8680d5f9714f3e040e6f9cbc88d7888439b6d" lab.x2="experimental-native-fork"
+WORKDIR /lab
+ENTRYPOINT []
+CMD ["srsenb", "--version"]

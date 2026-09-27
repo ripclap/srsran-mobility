@@ -1,0 +1,54 @@
+services:
+  mongo:
+    image: mongo:7.0
+    command: ["mongod", "--bind_ip", "10.87.0.11", "--quiet"]
+    networks:
+      lab: {ipv4_address: 10.87.0.11}
+    tmpfs: [/data/db]
+  core:
+    image: "srsran-mobility-core:${LAB_IMAGE_TAG:-verified}"
+    entrypoint: ["python3", "/lab/scripts/core.py"]
+    cap_add: [NET_ADMIN]
+    devices: [/dev/net/tun]
+    volumes: [".:/lab"]
+    depends_on: [mongo]
+    networks:
+      lab: {ipv4_address: 10.87.0.10}
+  channel:
+    image: "srsran-mobility-ran:${LAB_IMAGE_TAG:-verified}"
+    entrypoint: ["python3", "/lab/scripts/channel.py"]
+    volumes: [".:/lab"]
+    networks:
+      lab: {ipv4_address: 10.87.0.30}
+  enb1:
+    environment: {LAB_HANDOVER_MODE: "${LAB_HANDOVER_MODE:-x2}", LAB_USE_DEV_BINARY: "${LAB_USE_DEV_BINARY:-0}"}
+    image: "srsran-mobility-ran:${LAB_IMAGE_TAG:-verified}"
+    entrypoint: ["python3", "/lab/scripts/start-node.py", "enb1"]
+    volumes: [".:/lab"]
+    depends_on: [core, channel]
+    networks:
+      lab: {ipv4_address: 10.87.0.21}
+  enb2:
+    environment: {LAB_HANDOVER_MODE: "${LAB_HANDOVER_MODE:-x2}", LAB_USE_DEV_BINARY: "${LAB_USE_DEV_BINARY:-0}"}
+    image: "srsran-mobility-ran:${LAB_IMAGE_TAG:-verified}"
+    entrypoint: ["python3", "/lab/scripts/start-node.py", "enb2"]
+    volumes: [".:/lab"]
+    depends_on: [core, channel]
+    networks:
+      lab: {ipv4_address: 10.87.0.22}
+  ue:
+    environment: {LAB_USE_DEV_BINARY: "${LAB_USE_DEV_BINARY:-0}"}
+    image: "srsran-mobility-ran:${LAB_IMAGE_TAG:-verified}"
+    entrypoint: ["python3", "/lab/scripts/start-node.py", "ue"]
+    cap_add: [NET_ADMIN, SYS_ADMIN]
+    security_opt: ["apparmor=unconfined"]
+    devices: [/dev/net/tun]
+    volumes: [".:/lab"]
+    depends_on: [enb1, enb2]
+    networks:
+      lab: {ipv4_address: 10.87.0.31}
+networks:
+  lab:
+    internal: true
+    ipam:
+      config: [{subnet: 10.87.0.0/24}]

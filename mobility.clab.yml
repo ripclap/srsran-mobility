@@ -1,0 +1,51 @@
+name: srs-mobility
+mgmt:
+  network: srs-mobility-lab
+  ipv4-subnet: 10.87.0.0/24
+  external-access: false
+topology:
+  defaults:
+    kind: linux
+    privileged: false
+    image-pull-policy: Never
+    restart-policy: 'no'
+    binds: ['.:/lab']
+  nodes:
+    mongo:
+      image: mongo:7.0
+      mgmt-ipv4: 10.87.0.11
+      cmd: mongod --bind_ip 10.87.0.11 --quiet
+      tmpfs: {"/data/db": "rw,size=512m"}
+    core:
+      image: srsran-mobility-core:verified
+      mgmt-ipv4: 10.87.0.10
+      cap-add: [NET_ADMIN]
+      devices: [/dev/net/tun]
+      entrypoint: python3
+      cmd: /lab/scripts/core.py
+    channel:
+      image: srsran-mobility-ran:verified
+      mgmt-ipv4: 10.87.0.30
+      entrypoint: python3
+      cmd: /lab/scripts/channel.py
+    enb1:
+      image: srsran-mobility-ran:verified
+      mgmt-ipv4: 10.87.0.21
+      entrypoint: python3
+      cmd: /lab/scripts/start-node.py enb1
+      env: {LAB_HANDOVER_MODE: '${LAB_HANDOVER_MODE:=x2}', LAB_USE_DEV_BINARY: '0'}
+    enb2:
+      image: srsran-mobility-ran:verified
+      mgmt-ipv4: 10.87.0.22
+      entrypoint: python3
+      cmd: /lab/scripts/start-node.py enb2
+      env: {LAB_HANDOVER_MODE: '${LAB_HANDOVER_MODE:=x2}', LAB_USE_DEV_BINARY: '0'}
+    ue:
+      image: srsran-mobility-ran:verified
+      mgmt-ipv4: 10.87.0.31
+      cap-add: [NET_ADMIN, SYS_ADMIN]
+      security-opts: ["apparmor=unconfined"]
+      devices: [/dev/net/tun]
+      entrypoint: python3
+      cmd: /lab/scripts/start-node.py ue
+      env: {LAB_USE_DEV_BINARY: '0'}

@@ -1,0 +1,66 @@
+{
+  "sample_rate_hz": 1920000,
+  "frame_samples": 1920,
+  "channel": {
+    "reference_distance_m": 1,
+    "reference_loss_db": 40,
+    "path_loss_exponent": 2.7,
+    "iq_reference_dbm": -40,
+    "noise_std_iq": 0,
+    "seed": 436,
+    "ul_iq_reference_dbm": -47
+  },
+  "cells": [
+    {
+      "name": "enb1",
+      "position_m": [
+        0,
+        0
+      ],
+      "tx_power_dbm": 30,
+      "azimuth_deg": 0,
+      "beamwidth_deg": 90,
+      "max_antenna_loss_db": 0,
+      "dl_endpoint": "tcp://10.87.0.21:2101",
+      "ul_listen": "tcp://*:2100",
+      "pci": 1,
+      "enb_id": 411,
+      "channel": {
+        "delay_samples": 0,
+        "doppler_hz": 0,
+        "fading": "none",
+        "coherence_frames": 100
+      }
+    },
+    {
+      "name": "enb2",
+      "position_m": [
+        200,
+        0
+      ],
+      "tx_power_dbm": 30,
+      "azimuth_deg": 180,
+      "beamwidth_deg": 90,
+      "max_antenna_loss_db": 0,
+      "dl_endpoint": "tcp://10.87.0.22:2201",
+      "ul_listen": "tcp://*:2200",
+      "pci": 6,
+      "enb_id": 412,
+      "channel": {
+        "delay_samples": 0,
+        "doppler_hz": 0,
+        "fading": "none",
+        "coherence_frames": 100
+      }
+    }
+  ],
+  "ue": {
+    "position_m": [
+      10,
+      0
+    ],
+    "dl_listen": "tcp://*:2000",
+    "ul_endpoint": "tcp://10.87.0.31:2001",
+    "tx_power_dbm": 23
+  }
+}
